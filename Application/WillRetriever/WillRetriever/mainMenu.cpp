@@ -1,4 +1,5 @@
 #include "mainMenu.hpp"
+#include "userDashboard.hpp"
 
 bool mainMenu::isUserExists(const string& username, sqlite3* db) {
     const char* selectQuery = "SELECT * FROM LoginInfo WHERE username = ?;";
@@ -115,7 +116,9 @@ void mainMenu::menu(){
     }
     else if (choice == "2") {
         if (checkUser(db)) {
-            cout << "Login successful!" << endl;
+            cout << "Login successful! Press ENTER to continue." << endl;
+            dashboard dash;
+            dash.userDashboard();
         }
         else {
             cout << "Login failed. Invalid username or password." << endl;

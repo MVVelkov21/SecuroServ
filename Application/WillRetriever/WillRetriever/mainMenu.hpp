@@ -1,8 +1,4 @@
-#include <iostream>
-#include <string>
-#include <sqlite3.h>
-
-using namespace std;
+#include "userDashboard.hpp"
 
 class mainMenu {
 private:
@@ -11,5 +7,5 @@ private:
 	bool checkUser(sqlite3* db);
 	void saveLoginInfo(const string& username, const string& password, sqlite3* db);
 public:
-	 void menu();
+	void menu();
 };

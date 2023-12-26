@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\..\Downloads\sqlite\sqlite-amalgamation-3440200\sqlite3.c" />
     <ClCompile Include="mainMenu.cpp" />
+    <ClCompile Include="userDashboard.cpp" />
     <ClCompile Include="WillRetriever.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainMenu.hpp" />
+    <ClInclude Include="userDashboard.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
