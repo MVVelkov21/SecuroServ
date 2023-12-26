@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\..\Downloads\sqlite\sqlite-amalgamation-3440200\sqlite3.c" />
+    <ClCompile Include="baseHeader.hpp" />
     <ClCompile Include="mainMenu.cpp" />
     <ClCompile Include="userDashboard.cpp" />
     <ClCompile Include="WillRetriever.cpp" />

@@ -1,11 +1,11 @@
-#pragma once
-#include <iostream>
-#include <string>
-#include <sqlite3.h>
-using namespace std;
+#include "baseHeader.hpp"
 
 class dashboard{
 private:
+	void willOptions();
+	void willCreator();
+	void willAccess();
 public:
 	void userDashboard();
+	string loggedInUsername;
 };
