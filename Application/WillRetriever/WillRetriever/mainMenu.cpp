@@ -17,40 +17,6 @@ bool mainMenu::isUserExists(const string& username, sqlite3* db) {
     return result == SQLITE_ROW;
 }
 
-//bool mainMenu::checkUser(sqlite3* db) {
-//    string username, password;
-//    cout << "Enter username: ";
-//    cin >> username;
-//    cout << "Enter password: ";
-//    cin >> password;
-//
-//    const char* createTableQuery = "CREATE TABLE IF NOT EXISTS LoginInfo ("
-//        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-//        "username TEXT NOT NULL,"
-//        "password TEXT NOT NULL);";
-//
-//    if (sqlite3_exec(db, createTableQuery, nullptr, nullptr, nullptr) != SQLITE_OK) {
-//        cerr << "Error creating table: " << sqlite3_errmsg(db) << endl;
-//        return false;
-//    }
-//
-//    const char* selectQuery = "SELECT * FROM LoginInfo WHERE username = ? AND password = ?;";
-//
-//    sqlite3_stmt* stmt;
-//    if (sqlite3_prepare_v2(db, selectQuery, -1, &stmt, nullptr) != SQLITE_OK) {
-//        cerr << "Error preparing statement" << endl;
-//        return false;
-//    }
-//
-//    sqlite3_bind_text(stmt, 1, username.c_str(), -1, SQLITE_STATIC);
-//    sqlite3_bind_text(stmt, 2, password.c_str(), -1, SQLITE_STATIC);
-//
-//    int result = sqlite3_step(stmt);
-//
-//    sqlite3_finalize(stmt);
-//
-//    return result == SQLITE_ROW;
-//}
 bool mainMenu::checkUser(sqlite3* db) {
     string username, password;
     cout << "Enter username: ";
@@ -136,7 +102,7 @@ void mainMenu::menu(){
 	cout << "                       by SecuroServ                        " << endl;
     cout << "                                                            " << endl;
 
-    if (sqlite3_open("example.db", &db) != SQLITE_OK) {
+    if (sqlite3_open("database.db", &db) != SQLITE_OK) {
         cerr << "Error opening database" << endl;
     }
     string choice;
