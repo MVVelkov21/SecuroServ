@@ -40,6 +40,23 @@ void dashboard::createDatabaseAndTable(sqlite3* db) {
     }
 }
 
+bool dashboard::checkUser(const string& username, sqlite3* db) {
+    const char* selectQuery = "SELECT * FROM LoginInfo WHERE username = ?;";
+
+    sqlite3_stmt* stmt;
+    if (sqlite3_prepare_v2(db, selectQuery, -1, &stmt, nullptr) != SQLITE_OK) {
+        return false;
+    }
+
+    sqlite3_bind_text(stmt, 1, username.c_str(), -1, SQLITE_STATIC);
+
+    int result = sqlite3_step(stmt);
+
+    sqlite3_finalize(stmt);
+
+    return result == SQLITE_ROW;
+}
+
 void dashboard::willCreator() {
 	dashboardTui();
     sqlite3* db;
@@ -51,7 +68,14 @@ void dashboard::willCreator() {
 
     createDatabaseAndTable(db);
 
-    std::string username = loggedInUsername;
+    std::string username;
+    while (true) {
+        cout << "Enter the name of our inheritor: ";
+        cin >> username;
+        if (checkUser(username, db)) break;
+    }
+    
+    username += " ";
 
     std::string inputText;
 

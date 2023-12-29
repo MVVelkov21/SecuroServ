@@ -1,2 +1,6 @@
-﻿  userDashboard.cpp
+﻿  WillRetriever.cpp
+  baseHeader.hpp
+  mainMenu.cpp
+  userDashboard.cpp
+  Generating Code...
   WillRetriever.vcxproj -> C:\Users\admin\Documents\GitHub\SecuroServ\Application\WillRetriever\x64\Debug\WillRetriever.exe
