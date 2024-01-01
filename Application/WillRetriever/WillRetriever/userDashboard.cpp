@@ -75,13 +75,13 @@ void dashboard::willCreator() {
         if (checkUser(username, db)) break;
     }
     
-    username += " ";
+    //username += " ";
 
     std::string inputText;
 
     std::cout << "Enter text (type '0' to exit):" << std::endl;
 
-    while (true) {
+    while(true){
         std::getline(std::cin, inputText);
 
         if (inputText == "0") {
@@ -110,6 +110,51 @@ void dashboard::willCreator() {
     sqlite3_close(db);
 }
 
+void dashboard::printTextForUsername(const std::string& username) {
+    sqlite3* db;
+    int rc = sqlite3_open("database.db", &db);
+
+    if (rc != SQLITE_OK) {
+        std::cerr << "Cannot open database: " << sqlite3_errmsg(db) << std::endl;
+        return;
+    }
+
+    const char* selectQuery = "SELECT Text FROM TextTable WHERE Username = ?;";
+    sqlite3_stmt* stmt;
+
+    if (sqlite3_prepare_v2(db, selectQuery, -1, &stmt, nullptr) != SQLITE_OK) {
+        std::cerr << "Error preparing statement for selection." << std::endl;
+        sqlite3_close(db);
+        return;
+    }
+
+    sqlite3_bind_text(stmt, 1, username.c_str(), -1, SQLITE_STATIC);
+
+    bool printedText = false; // Track whether any non-empty text has been printed
+
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
+        const char* text = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
+
+        if (!std::string(text).empty()) {
+            if (printedText) {
+                std::cout << std::endl; // Print a new line before non-empty text, if not the first
+            }
+
+            std::cout << text;
+            printedText = true;
+        }
+    }
+
+    if (printedText) {
+        std::cout << std::endl; // Print a new line after the last non-empty text
+    }
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+}
+
 void dashboard::willAccess(){
 	dashboardTui();
+    cout << "Here is your inheritance:" << endl;
+    printTextForUsername(loggedInUsername);
 }
