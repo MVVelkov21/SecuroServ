@@ -1,7 +1,2 @@
-﻿  WillRetriever.cpp
-  baseHeader.hpp
-  mainMenu.cpp
-  userDashboard.cpp
-  Generating Code...
-  sqlite3.c
+﻿  userDashboard.cpp
   WillRetriever.vcxproj -> C:\Users\admin\Documents\GitHub\SecuroServ\Application\WillRetriever\x64\Debug\WillRetriever.exe

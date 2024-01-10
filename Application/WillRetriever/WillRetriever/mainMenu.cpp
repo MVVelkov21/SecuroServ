@@ -49,6 +49,7 @@ bool mainMenu::checkUser(sqlite3* db) {
 void mainMenu::saveLoginInfo(const string& username, const string& password, sqlite3* db) {
     if (isUserExists(username, db)) {
         cout << "User with the same username already exists. Please choose a different username." << endl;
+        _getch();
         return;
     }
 
@@ -78,6 +79,7 @@ void mainMenu::saveLoginInfo(const string& username, const string& password, sql
     }
     else {
         cout << "User information saved to the database." << endl;
+        _getch();
     }
 
     sqlite3_finalize(stmt);
@@ -116,10 +118,12 @@ void mainMenu::menu() {
         }
         else {
             cout << "Login failed. Invalid username or password." << endl;
+            _getch();
         }
     }
     else {
         cout << "Invalid choice." << endl;
+        _getch();
     }
 
     sqlite3_close(db);

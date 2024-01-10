@@ -83,6 +83,8 @@ void dashboard::willCreator() {
         getline(cin, inputText);
 
         if (inputText == "0") {
+            cout << "Your will has been saved succesfully." << endl;
+            _getch();
             break;
         }
 
@@ -153,6 +155,8 @@ void dashboard::printTextForUsername(const string& username) {
 
 void dashboard::willAccess() {
     dashboardTui();
-    cout << "Here is your inheritance:" << endl;
+    cout << "Here is your inheritance:" << endl << endl;
     printTextForUsername(loggedInUsername);
+    cout << endl << "Press ENTER to close the program.";
+    _getch();
 }
