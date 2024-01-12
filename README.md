@@ -1,5 +1,5 @@
 <p align = "center">
- <img src = "SecuroServ/Website/logo.SecuroServ" alt = "logo">
+ <img src = "Website/logo.SecuroServ.png" alt = "logo">
  <br>
   <h1>📖 Description </h1>
   SecuroServ is our team name. Our goal is to create an app and a site about wills and other function that you can make with your money.
