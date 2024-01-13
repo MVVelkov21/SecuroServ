@@ -87,29 +87,30 @@
             <label for="withdrawAmount">Amount from Cryptocurrency:</label>
             <input type="text" id="withdrawAmount" required>
             <label for="withdrawAmount">Amount to Currency:</label>
-            <input type="value" id="withdrawAmount" required>
+            <input type="text" id="withdrawAmount" required>
 
             
 
             <button type="submit">Exchange</button>
         </form>
     </section>
+
     
 
     <section id="withdraw">
         
         <form id="withdrawForm" onsubmit="withdrawCrypto(); return false;">
             <label for="withdrawCurrency">Withdraw Currency:</label>
-            <select id="withdrawCurrency">
-                <option value="btc">BTC</option>
-                <option value="eth">ETH</option>
-                <option value="xrp">XRP</option>
-                <option value="bnb">BNB</option>
-                <!-- Add other cryptocurrencies as needed -->
+            <select id="toCurrency">
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+                <option value="gbr">GBR</option>
+                <option value="bgn">BGN</option>
+                <!-- Add other fiat currencies as needed -->
             </select>
 
             <label for="amount">Amount:</label>
-            <input type="number" id="amount" required>
+            <input type="text" id="amount" required>
 
             <button type="submit">Withdraw</button>
         </form>
@@ -121,24 +122,31 @@
             document.getElementById('withdraw').style.display = page === 'withdraw' ? 'block' : 'none';
         }
 
-        function exchangeCrypto() {
-            const fromCurrency = document.getElementById('fromCurrency').value;
-            const toCurrency = document.getElementById('toCurrency').value;
-            const amount = parseFloat(document.getElementById('amount').value);
+        async function exchangeCrypto()
+         {
+        const fromCurrency = document.getElementById('fromCurrency').value;
+        const toCurrency = document.getElementById('toCurrency').value;
+        const amount = parseFloat(document.getElementById('withdrawAmount').value);
 
-            // Implement logic for crypto exchange here
-            // For simplicity, just log the details
-            console.log(`Exchange ${amount} ${fromCurrency} to ${toCurrency}`);
+        try {
+            // Fetch exchange rates from CoinGecko API
+            const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${fromCurrency},${toCurrency}&vs_currencies=usd`);
+            const data = await response.json();
+
+            // Extract prices from the response
+            const fromCurrencyPrice = data[fromCurrency].usd;
+            const toCurrencyPrice = data[toCurrency].usd;
+
+            // Calculate the exchanged amount
+            const exchangedAmount = (amount / fromCurrencyPrice) * toCurrencyPrice;
+
+            // Display the result
+            document.getElementById('result').innerText = `Exchanged ${amount} ${fromCurrency} to ${exchangedAmount.toFixed(2)} ${toCurrency}`;
+        } catch (error) {
+            console.error('Error fetching data:', error);
         }
-
-        function withdrawCrypto() {
-            const withdrawCurrency = document.getElementById('withdrawCurrency').value;
-            const withdrawAmount = parseFloat(document.getElementById('withdrawAmount').value);
-
-            // Implement logic for crypto withdrawal here
-            // For simplicity, just log the details
-            console.log(`Withdraw ${withdrawAmount} ${withdrawCurrency}`);
-        }
+    }
+    
     </script>
 
 </body>
