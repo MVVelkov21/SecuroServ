@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style/Exchange.css">
+    <title>Crypto exchange</title>
+    
+</head>
+<body>
+
+    <header>
+        <h1>Crypto Exchange Platform</h1>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showPage('exchange')">Exchange</a>
+        <a href="#" onclick="showPage('withdraw')">Withdraw</a>
+    </nav>
+
+    <section id="exchange">
+        <form id="exchangeForm" onsubmit="calculateAmountToCurrency(); return false;">
+            <label for="fromCurrency">From Cryptocurrency:</label>
+            <select id="fromCurrency">
+                <option value="btc">BTC</option>
+                <option value="eth">ETH</option>
+                <option value="xrp">XRP</option>
+                <option value="bnb">BNB</option>
+                <!-- Add other cryptocurrencies as needed -->
+            </select>
+
+            <label for="toCurrency">To Currency:</label>
+            <select id="toCurrency">
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+                <option value="gbr">GBR</option>
+                <option value="bgn">BGN</option>
+                <!-- Add other fiat currencies as needed -->
+            </select>
+
+            <label for="withdrawAmount">Amount from Cryptocurrency:</label>
+            <input type="text" id="withdrawAmount" placeholder="Enter amount" required>
+
+            <label for="toCurrencyAmount">Amount to Currency:</label>
+            <input type="text" id="toCurrencyAmount" placeholder="Automatically calculated" readonly>
+
+            <button type="submit">Calculate</button>
+        </form>
+    </section>
+
+    <section id="withdraw">
+        <form id="withdrawForm" onsubmit="withdrawCrypto(); return false;">
+            <label for="withdrawCurrency">Withdraw Currency:</label>
+            <select id="withdrawCurrency">
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+                <option value="gbr">GBR</option>
+                <option value="bgn">BGN</option>
+                <!-- Add other cryptocurrencies as needed -->
+            </select>
+
+            <label for="amount">Amount:</label>
+            <input type="text" id="amount" placeholder="Enter amount" required>
+
+            <button type="submit">Withdraw</button>
+        </form>
+    </section>
+
+    <!-- Additional div for displaying the result -->
+    <div id="result"></div>
+
+    <script>
+        function showPage(page) {
+            document.getElementById('exchange').style.display = page === 'exchange' ? 'block' : 'none';
+            document.getElementById('withdraw').style.display = page === 'withdraw' ? 'block' : 'none';
+        }
+
+        function calculateAmountToCurrency() {
+            const fromCurrency = document.getElementById('fromCurrency').value;
+            const toCurrency = document.getElementById('toCurrency').value;
+            const amountFromCrypto = parseFloat(document.getElementById('withdrawAmount').value);
+
+            const pair = `${fromCurrency.toLowerCase()}-${toCurrency.toLowerCase()}`;
+            const conversionRates = {
+                'btc-usd': 42726.36, 
+                'btc-eur': 39135.31, 
+                'btc-gbr': 33589.67, 
+                'btc-bgn': 76310.46,
+
+                'eth-usd': 2573.77, 
+                'eth-eur': 2353.45, 
+                'eth-gbr': 2023.74, 
+                'eth-bgn': 4594.93,
+
+                'xrp-usd': 0.57, 
+                'xrp-eur': 0.53, 
+                'xrp-gbr': 0.45, 
+                'xrp-bgn': 1.03,
+
+                'bnb-usd': 301.85, 
+                'bnb-eur': 275.62, 
+                'bnb-gbr': 236.73, 
+                'bnb-bgn': 539.09,
+                
+            };
+
+            const exchangeRate = conversionRates[pair];
+
+            if (exchangeRate !== undefined) {
+                const exchangedAmount = amountFromCrypto * exchangeRate;
+                document.getElementById('toCurrencyAmount').value = exchangedAmount.toFixed(2);
+            } else {
+                document.getElementById('toCurrencyAmount').value = 'Invalid pair';
+            }
+        }
+
+        function withdrawCrypto() {
+            const withdrawCurrency = document.getElementById('withdrawCurrency').value;
+            const withdrawAmount = parseFloat(document.getElementById('amount').value);
+
+            // Implement logic for crypto withdrawal here
+            // For simplicity, just log the details
+            console.log(`Withdraw ${withdrawAmount} ${withdrawCurrency}`);
+
+            // Display the result
+            document.getElementById('result').innerText = `Withdraw ${withdrawAmount} ${withdrawCurrency}`;
+        }
+    </script>
+
+</body>
+</html>
