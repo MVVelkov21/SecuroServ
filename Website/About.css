@@ -1,0 +1,123 @@
+ .u-section-1 {
+  background-image: none;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 751px;
+}
+
+.u-section-1 .u-text-1 {
+  text-align: center;
+  --animation-custom_in-translate_x: 0px;
+  --animation-custom_in-translate_y: 0px;
+  --animation-custom_in-opacity: 0;
+  --animation-custom_in-rotate: 0deg;
+  --animation-custom_in-scale: 0.3;
+  margin: 70px auto 0;
+}
+
+.u-section-1 .u-list-1 {
+  margin-top: 93px;
+  margin-bottom: 60px;
+}
+
+.u-section-1 .u-repeater-1 {
+  min-height: 276px;
+  grid-template-columns: calc(25% - 3.75px) calc(25% - 3.75px) calc(25% - 3.75px) calc(25% - 3.75px);
+  grid-gap: 5px 5px;
+}
+
+.u-section-1 .u-list-item-1 {
+  box-shadow: 5px 5px 20px 0 rgba(0,0,0,0.4);
+  background-image: none;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 10px;
+}
+
+.u-section-1 .u-image-1 {
+  width: 146px;
+  height: 146px;
+  margin: 0 auto;
+}
+
+.u-section-1 .u-text-2 {
+  margin: 33px auto 0;
+}
+
+.u-section-1 .u-list-item-2 {
+  box-shadow: 5px 5px 20px 0 rgba(0,0,0,0.4);
+  background-image: none;
+}
+
+.u-section-1 .u-container-layout-2 {
+  padding: 10px;
+}
+
+.u-section-1 .u-image-2 {
+  width: 146px;
+  height: 146px;
+  margin: 0 auto;
+}
+
+.u-section-1 .u-text-3 {
+  margin: 33px auto 0;
+}
+
+.u-section-1 .u-list-item-3 {
+  box-shadow: 5px 5px 20px 0 rgba(0,0,0,0.4);
+  background-image: none;
+}
+
+.u-section-1 .u-container-layout-3 {
+  padding: 10px;
+}
+
+.u-section-1 .u-image-3 {
+  width: 146px;
+  height: 146px;
+  margin: 0 auto;
+}
+
+.u-section-1 .u-text-4 {
+  margin: 33px auto 0;
+}
+
+.u-section-1 .u-list-item-4 {
+  box-shadow: 5px 5px 20px 0 rgba(0,0,0,0.4);
+  background-image: none;
+}
+
+.u-section-1 .u-container-layout-4 {
+  padding: 10px;
+}
+
+.u-section-1 .u-image-4 {
+  width: 146px;
+  height: 146px;
+  margin: 0 auto;
+}
+
+.u-section-1 .u-text-5 {
+  margin: 33px auto 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-repeater-1 {
+    min-height: 227px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-repeater-1 {
+    min-height: 504px;
+    grid-template-columns: calc(50% - 2.5px) calc(50% - 2.5px);
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: 100%;
+  }
+}

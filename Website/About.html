@@ -2,15 +2,16 @@
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="">
+    <meta name="keywords" content="Our Team">
     <meta name="description" content="">
-    <title>CryptoExchange</title>
+    <title>About</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="CryptoExchange.css" media="screen">
+<link rel="stylesheet" href="About.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 6.2.1, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
     
     
     <script type="application/ld+json">{
@@ -20,7 +21,7 @@
 		"logo": "images/logo.SecuroServ.png"
 }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="CryptoExchange">
+    <meta property="og:title" content="About">
     <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
   <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-e279"><a href="Home.html" class="u-image u-logo u-image-1" data-image-width="379" data-image-height="381" title="Home">
@@ -57,117 +58,48 @@
         </div>
       </nav><a href="Home.html" class="u-image u-logo u-image-2" data-image-width="500" data-image-height="500" title="Home">
         <img src="images/Logo.png" class="u-logo-image u-logo-image-2">
-      </a></header> 
+      </a></header>
+    <section class="u-align-center u-border-12 u-border-grey-75 u-clearfix u-palette-5-dark-3 u-section-1" id="carousel_eff5">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-align-center u-text u-text-default u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">Our Team<br>
+        </h2>
+        <div class="u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-container-style u-list-item u-repeater-item u-list-item-1">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <img class="u-image u-image-default u-preserve-proportions u-image-1" src="images/image.png" alt="" data-image-width="96" data-image-height="96">
+                <p class="u-align-center u-small-text u-text u-text-default u-text-variant u-text-2">Никола Пасков<br>10 А<br>
+                </p>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item u-list-item-2">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <img class="u-image u-image-default u-preserve-proportions u-image-2" src="images/image1.png" alt="" data-image-width="96" data-image-height="96">
+                <p class="u-align-center u-small-text u-text u-text-default u-text-variant u-text-3">Мартин Стоянов<br>10 Б
+                </p>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item u-list-item-3">
+              <div class="u-container-layout u-similar-container u-container-layout-3">
+                <img class="u-image u-image-default u-preserve-proportions u-image-3" src="images/image21.png" alt="" data-image-width="2147" data-image-height="2863">
+                <p class="u-align-center u-small-text u-text u-text-default u-text-variant u-text-4">Мартин Велков<br>10 В<br>
+                </p>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item u-list-item-4">
+              <div class="u-container-layout u-similar-container u-container-layout-4">
+                <img class="u-image u-image-default u-preserve-proportions u-image-4" src="images/image3.png" alt="" data-image-width="96" data-image-height="96">
+                <p class="u-align-center u-small-text u-text u-text-default u-text-variant u-text-5">Стилян Мишев<br>10 Г
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     
-        <h1>Crypto Exchange Platform</h1>
-
-    <section class="option">
-        <a href="#" onclick="showPage('exchange')">Exchange</a>
-        <a href="#" onclick="showPage('withdraw')">Withdraw</a>
-    </section>
-
-    <section id="exchange">
-        <form id="exchangeForm" onsubmit="calculateAmountToCurrency(); return false;">
-            <label for="fromCurrency">From Cryptocurrency:</label>
-            <select id="fromCurrency">
-                <option value="btc">BTC</option>
-                <option value="eth">ETH</option>
-                <option value="xrp">XRP</option>
-                <option value="bnb">BNB</option>
-            </select>
-
-            <label for="toCurrency">To Currency:</label>
-            <select id="toCurrency">
-                <option value="usd">USD</option>
-                <option value="eur">EUR</option>
-                <option value="gbr">GBR</option>
-                <option value="bgn">BGN</option>
-            </select>
-
-            <label for="withdrawAmount">Amount from Cryptocurrency:</label>
-            <input type="text" id="withdrawAmount" placeholder="Enter amount" required>
-
-            <label for="toCurrencyAmount">Amount to Currency:</label>
-            <input type="text" id="toCurrencyAmount" placeholder="Automatically calculated" readonly>
-
-            <button type="submit">Calculate</button>
-        </form>
-    </section>
-
-    <section id="withdraw">
-        <form id="withdrawForm" onsubmit="withdrawCrypto(); return false;">
-            <label for="withdrawCurrency">Withdraw Currency:</label>
-            <select id="withdrawCurrency">
-                <option value="usd">USD</option>
-                <option value="eur">EUR</option>
-                <option value="gbr">GBR</option>
-                <option value="bgn">BGN</option>
-            </select>
-
-            <label for="amount">Amount:</label>
-            <input type="text" id="amount" placeholder="Enter amount" required>
-
-            <button type="submit">Withdraw</button>
-        </form>
-    </section>
-
-    <div id="result"></div>
-
-    <script>
-        function showPage(page) {
-            document.getElementById('exchange').style.display = page === 'exchange' ? 'block' : 'none';
-            document.getElementById('withdraw').style.display = page === 'withdraw' ? 'block' : 'none';
-        }
-
-        function calculateAmountToCurrency() {
-            const fromCurrency = document.getElementById('fromCurrency').value;
-            const toCurrency = document.getElementById('toCurrency').value;
-            const amountFromCrypto = parseFloat(document.getElementById('withdrawAmount').value);
-
-            const pair = `${fromCurrency.toLowerCase()}-${toCurrency.toLowerCase()}`;
-            const conversionRates = {
-                'btc-usd': 42726.36, 
-                'btc-eur': 39135.31, 
-                'btc-gbr': 33589.67, 
-                'btc-bgn': 76310.46,
-
-                'eth-usd': 2573.77, 
-                'eth-eur': 2353.45, 
-                'eth-gbr': 2023.74, 
-                'eth-bgn': 4594.93,
-
-                'xrp-usd': 0.57, 
-                'xrp-eur': 0.53, 
-                'xrp-gbr': 0.45, 
-                'xrp-bgn': 1.03,
-
-                'bnb-usd': 301.85, 
-                'bnb-eur': 275.62, 
-                'bnb-gbr': 236.73, 
-                'bnb-bgn': 539.09,
-                
-            };
-
-            const exchangeRate = conversionRates[pair];
-
-            if (exchangeRate !== undefined) {
-                const exchangedAmount = amountFromCrypto * exchangeRate;
-                document.getElementById('toCurrencyAmount').value = exchangedAmount.toFixed(2);
-            } else {
-                document.getElementById('toCurrencyAmount').value = 'Invalid pair';
-            }
-        }
-
-        function withdrawCrypto() {
-            const withdrawCurrency = document.getElementById('withdrawCurrency').value;
-            const withdrawAmount = parseFloat(document.getElementById('amount').value);
-
-            console.log(`Withdraw ${withdrawAmount} ${withdrawCurrency}`);
-
-            document.getElementById('result').innerText = `Withdraw ${withdrawAmount} ${withdrawCurrency}`;
-        }
-    </script>
-
+    
+    
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-012b"><div class="u-clearfix u-sheet u-valign-top-lg u-valign-top-xl u-sheet-1">
         <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1" data-responsive-from="MD">
           <div class="menu-collapse">
