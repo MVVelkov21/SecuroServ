@@ -22,7 +22,16 @@ bool mainMenu::checkUser(sqlite3* db) {
     cout << "Enter username: ";
     cin >> username;
     cout << "Enter password: ";
-    cin >> password;
+    char ch;
+    do {
+        ch = _getch();
+
+        if (ch != '\r' && ch != '\n') {
+            password.push_back(ch);
+            std::cout << '*';
+        }
+    } while (ch != '\r' && ch != '\n');
+    cout << endl;
 
     const char* selectQuery = "SELECT * FROM LoginInfo WHERE username = ? AND password = ?;";
 
@@ -102,11 +111,36 @@ void mainMenu::menu() {
     cin >> choice;
 
     if (choice == "1") {
+        cout << "Enter a password atleast 6 characters long," << endl;
+        cout << "including atleast 1 capital letter, number" << endl;
+        cout << "and a special symbol." << endl << endl;
         string username, password;
         cout << "Enter username: ";
         cin >> username;
         cout << "Enter password: ";
-        cin >> password;
+        char ch;
+        while (true) {
+            ch = _getch();
+
+            if (ch == '\r' || ch == '\n') {
+                if (password.length() >= 6 &&
+                    std::any_of(password.begin(), password.end(), ::isdigit) &&
+                    std::any_of(password.begin(), password.end(), ::isupper) &&
+                    strpbrk(password.c_str(), "!@#$%^&*()-_+=<>?,./;:'\"[]{}\\|`~") != nullptr) {
+                    break;
+                }
+                else {
+                    std::cout << "\nInvalid password.";
+                    _getch();
+                    exit(0);
+                }
+            }
+            else {
+                password.push_back(ch);
+                std::cout << '*';
+            }
+        }
+        cout << endl;
         saveLoginInfo(username, password, db);
     }
     else if (choice == "2") {
